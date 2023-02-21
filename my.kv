@@ -1,0 +1,73 @@
+<Container>:
+    rows: 10
+    padding: 1
+
+    krokodil: text_input
+    label_widget: label
+
+    BoxLayout:
+        id: box
+        orientation: 'vertical'
+        pos_hint: {'center_x':1, 'y': 0.8}
+        size_hint: (1, 10)
+        markup: False
+
+
+    Label:
+        id: label
+        text: 'Введите значения тока'
+
+        pos_hint: {'center_x':1, 'y': 1}
+        bold: True
+
+    TextInput:
+        id: text_input
+        multiline: False
+        radius: 20
+        size_hint: .9, .95
+
+
+
+
+
+    FloatLayout:
+        Button:
+            pos_hint: {'center_x':0.5, 'y': 0.4}
+            text: 'Отправить ток'
+            bold: True
+            background_color: '#00FFCE'
+            size_hint: 1, 0.9
+            on_release:
+                root.change_text()
+
+
+
+    FloatLayout:
+        Button:
+            size_hint: 0.43, 2
+            pos_hint: {'y': -1, 'right': 0.43}
+            text: 'Рассчитать магнитный поток'
+            orientation: 'vertical'
+            font_size: 20
+            bold: True
+            text_size: (self.width, None)
+            on_release:
+                root.calculate_flux()  # TODO
+
+
+
+    FloatLayout:
+        Button:
+            text: 'Построить\nГрафики'
+            orientation: 'vertical'
+            bold: True
+            font_size: 20
+            pos_hint: {'center_x':0.785, 'y': 0.01}
+            size_hint: 0.43, 2
+            on_release:
+                root.gnrt_graph()
+
+
+
+
+
